@@ -10,7 +10,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <div>
             <span>Location : {{event.location.adress}} - {{event.location.city}} - {{event.location.country}}</span>
         </div>
-        <button class="btn btn-primary" (click)="handleClickMe()">Click Me!</button>
     `
     
 })
