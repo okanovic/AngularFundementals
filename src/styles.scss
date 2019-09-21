@@ -1,3 +1,11 @@
 body{
     background-color: cadetblue
 }
+#toast-container>.toast-info {
+    background-image: none !important;
+    background-color: green
+}
+#toast-container>.toast-warning {
+    background-image: none !important;
+    background-color: red
+}

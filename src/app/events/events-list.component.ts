@@ -3,7 +3,6 @@ import { EventService } from '../shared/event.service';
 import { ToastrService } from '../common/toastr.service';
 
 @Component({
-    selector: 'events-list',
     template: `
     <div>
     <h1>Angular Upcoming Events</h1>
@@ -32,9 +31,10 @@ export class EventsListComponent implements OnInit{
  
   ngOnInit(){
     this.events = this.eventService.getEvents()
-
+    console.log(this.events)
   }
   handleToasterClick(eventName){
-    this.toastr.info(eventName)
+    this.toastr.warning(eventName)
+    console.log(eventName)
   }
 }
