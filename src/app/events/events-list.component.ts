@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
 import { ToastrService } from '../common/toastr.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     template: `
@@ -9,7 +10,7 @@ import { ToastrService } from '../common/toastr.service';
     <div class="card">
     <div class="row">
         <div class="col-md-6 card-border"  *ngFor = "let event of events">
-        <events-thumbnail #thumbnail (click)="handleToasterClick(event.name)" [events]="event"></events-thumbnail>
+        <events-thumbnail [routerLink]="['/events',event.id]" #thumbnail (click)="handleToasterClick(event.name)" [events]="event"></events-thumbnail>
         </div>
     </div>
     </div>
@@ -24,14 +25,13 @@ import { ToastrService } from '../common/toastr.service';
 
 })
 export class EventsListComponent implements OnInit{
-  events:any[];
-  constructor(private eventService:EventService,private toastr:ToastrService){
+  events:any;
+  constructor(private eventService:EventService,private toastr:ToastrService,private route:ActivatedRoute){
   }
  
  
   ngOnInit(){
-    this.events = this.eventService.getEvents()
-    console.log(this.events)
+    this.events = this.route.snapshot.data['events']
   }
   handleToasterClick(eventName){
     this.toastr.warning(eventName)
