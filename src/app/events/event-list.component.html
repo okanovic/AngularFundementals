@@ -1,0 +1,13 @@
+<div>
+    <h1>Angular Upcoming Events</h1>
+    <div class="card">
+    <div class="row">
+        <div class="col-md-6 card-border"  *ngFor = "let event of events">
+        <events-thumbnail [routerLink]="['/events',event.id]" #thumbnail (click)="handleToasterClick(event.id,event.name)" [events]="event"></events-thumbnail>
+        </div>
+    </div>
+    </div>
+    <button class="btn btn-primary" (click)="thumbnail.logFoo()">Log Me Foo</button>
+    <h4>{{thumbnail?.someProperty}}</h4>
+
+</div>

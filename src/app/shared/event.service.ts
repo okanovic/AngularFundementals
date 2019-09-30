@@ -9,6 +9,7 @@ export class EventService {
             subject.next(EVENTS); subject.complete()
         }, 1000);
         return subject;
+        
     }
     getEvent(id:number){
         return EVENTS.find(event => event.id === id)
@@ -323,3 +324,4 @@ const EVENTS = [
     }
 
 ]
+console.log(Subject)
